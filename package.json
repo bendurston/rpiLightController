@@ -1,22 +1,11 @@
 {
-  "name": "rpilightcontroller",
-  "version": "1.0.0",
-  "description": "Control LED lights from web application for RPI",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/bendurston/rpiLightController.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/bendurston/rpiLightController/issues"
-  },
-  "homepage": "https://github.com/bendurston/rpiLightController#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "redis": "^3.0.2",
+    "redis-server": "^1.2.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
