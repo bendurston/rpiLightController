@@ -5,13 +5,12 @@ const dotenv = require('dotenv');
 const app = express();
 const routes = require('./routes');
 
-
 dotenv.config();
+
 const port = process.env.PORT;
-const projectPath = String(process.env.PROJECTPATH);
+const staticPath = String(process.env.STATICPATH);
 
-
-app.use(express.static(path.join(String(projectPath), './static')));
+app.use(express.static(staticPath));
 
 // landing route, to routes/index.js
 app.use('/', routes);

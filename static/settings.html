@@ -13,6 +13,15 @@
         <p>
            Here is some information about your raspberry pi 
         </p>
+        <form method="POST" action="/settings">
+            <label for="redPin">GPIO Red Pin</label>
+            <input type="text" name="redPin">
+            <label for="greenPin">GPIO Green Pin</label>
+            <input type="text" name="greenPin">
+            <label for="bluePin">GPIO Blue Pin</label>
+            <input type="text" name="bluePin">
+            <input type="submit" value="Save">
+        </form>
     </body>
     <footer>
         <p>Some extra information</p>
