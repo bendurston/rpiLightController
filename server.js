@@ -15,6 +15,8 @@ app.use(express.static(staticPath));
 // landing route, to routes/index.js
 app.use('/', routes);
 
+app.set('views', './views');
+
 app.listen(port, () => {
     console.log(`Express server listening on port: ${port}.`)
 });
