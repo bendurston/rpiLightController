@@ -1,0 +1,15 @@
+html
+    head    
+        title RPI LED Controller
+
+    body
+        h1 Settings
+        a(href='/') Go Back
+        form(action="/settings" method="POST")
+            label(name="redPinName") GPIO red pin
+            input(type="text" name="redPin")
+            label(name="greenPinName") GPIO green pin
+            input(type="text" name="greenPin")
+            label(name="bluePinName") GPIO blue pin
+            input(type="text" name="bluePin")
+            input(type="submit" value="Save")
