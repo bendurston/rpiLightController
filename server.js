@@ -4,6 +4,7 @@ const dotenv = require('dotenv');
 
 const app = express();
 const routes = require('./routes');
+const colourChanger = require('./helpers/colourChanger.js');
 
 dotenv.config();
 
@@ -16,4 +17,6 @@ app.use('/', routes);
 app.listen(port, () => {
     console.log(`Express server listening on port: ${port}.`)
 });
+
+colourChanger.setLightsOff();
 

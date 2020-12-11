@@ -1,7 +1,6 @@
 const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
-
 dotenv.config();
 
 const projectPath = String(process.env.PROJECTPATH);

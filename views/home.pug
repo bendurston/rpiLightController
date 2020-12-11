@@ -1,11 +1,15 @@
 html
     head    
         title RPI LED Controller
-
+        style
+            include ../static/css/home.css
     body
         h1 Welecome to the RPI LED Controller
         a(href='/settings') Go To Settings
-        div(id="current pins")
-            p= redPin
-            p= greenPin
-            p= bluePin
+        div(id="current-pins")
+            div(id="red")
+                p= redPin
+            div(id="green")
+                p= greenPin
+            div(id="blue")
+                p= bluePin
