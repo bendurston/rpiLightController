@@ -3,54 +3,44 @@ const { exec } = require('child_process');
 
 module.exports = {
 
-    getPinsFromData: function(){
-        /*
-        Purpose:
-            
-        Args:
-        
-        Returns:
-        */
-       readWrite.readPinsFromData().then(function(pinList){
-        return pinList;
-       });
+    getPinsFromData: function() {
+        var promise = new Promise(function(resolve, reject){
+            readWrite.readPinsFromData().then(function(pinList){
+                resolve(pinList);
+            });
+        })
+        return promise
+    }, // getPinsFromData End
 
-    },
-    setLightsOff: function() {
-        /*
-        Purpose:
-            This function will be called when the server boots and
-            when clicking the ligths off button; Setting the lights to black.
-        Args:
-            None
-        Returns:
-            error, stderr
-        */
-        var pinList = await this.getPinsFromData();
-        console.log(pinList);
-        var redPin = String(pinList[0]);
-        var greenPin = String(pinList[1]);
-        var bluePin = String(pinList[2]);
-        let lightOff = 'pigs p ' + redPin + ' 0; pigs p ' + greenPin + ' 0; pigs p ' + bluePin + ' 0'
-        console.log(lightOff);
-        // Uncomment when in production.
-        // exec(lightOff, (error, stdout, stderr)=> {
-        //     if (error) {
-        //         console.log(`Error: ${error.message}`);
-        //         return;
-        //     }
-        //     if (stderr){
-        //         console.log(`stderr: ${stderr}`);
-        //         return;
-        //     }
-        //     console.log(`stdout: ${stdout}`);
-        // });
-
+    setLightsOff: async function() {
+        var pinList = await this.getPinsFromData()
+        var lightOff = 'pigs p ' + pinList[0] + ' 0; pigs p ' + pinList[1] + ' 0; pigs p ' + pinList[2] + ' 0'
+        await this.executeCommand(lightOff);
     }, // setLightsOff End
 
-    setLightsColour: function(red, green, blue){
-        
+    setLightsOn: async function() {
+        var pinList = await this.getPinsFromData()
+        var lightOn = 'pigs p ' + pinList[0] + ' 255; pigs p ' + pinList[1] + ' 255; pigs p ' + pinList[2] + ' 255'
+        await this.executeCommand(lightOn);
+    }, // setLightsOn End
 
-    } // setLightsColour End
+    setLightsColour: async function(red, green, blue){
+        var pinList = await this.getPinsFromData()
+        var lightCustom = 'pigs p ' + pinList[0] + ' ' + red +'; pigs p ' + pinList[1] + ' '+ green +'; pigs p ' + pinList[2] + ' ' + blue
+        await this.executeCommand(lightCustom);
+    }, // setLightsColour End
 
+    executeCommand: async function(command){
+        exec(command, (error, stdout, stderr)=> {
+            if (error) {
+                console.log(`Error: ${error.message}`);
+                return;
+            }
+            if (stderr){
+                console.log(`stderr: ${stderr}`);
+                return;
+            }
+            console.log(`stdout: ${stdout}`);
+        });
+    } //executeCommand End
 };

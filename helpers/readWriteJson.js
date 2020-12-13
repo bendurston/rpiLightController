@@ -31,12 +31,9 @@ module.exports = {
                 for (var key in pins){
                     pinList.push(pins[key])
                 }
-                //console.log(`${pinList}`)
                 resolve(pinList);
             })
         });
-
         return promise;
-
     }
 };
