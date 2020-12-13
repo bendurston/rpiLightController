@@ -2,8 +2,9 @@ const btnLightOn = document.getElementById("lights-on");
 const btnLightOff = document.getElementById("lights-off");
 const btnLightCustom = document.getElementById("lights-custom");
 
+
 btnLightOn.addEventListener('click', async function(e) {
-    await fetch('/api/lightsOn', {
+    await fetch('/home/api/lightsOn', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -12,7 +13,7 @@ btnLightOn.addEventListener('click', async function(e) {
 });
 
 btnLightOff.addEventListener('click', async function(e) {
-    await fetch('/api/lightsOff', {
+    await fetch('/home/api/lightsOff', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'
@@ -22,7 +23,7 @@ btnLightOff.addEventListener('click', async function(e) {
 
 // change to sliders for custom
 btnLightCustom.addEventListener('click', async function(e) {
-    await fetch('/api/lightsCustom', {
+    await fetch('/home/api/lightsCustom', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json;charset=utf-8'

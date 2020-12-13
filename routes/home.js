@@ -4,14 +4,17 @@ const bodyPaser = require('body-parser');
 const readWrite = require('../helpers/readWriteJson.js');
 const colourChanger = require('../helpers/colourChanger.js');
 const settings = require('./settings');
-const { request } = require('express');
+const { request, response } = require('express');
 
 const router = express.Router();
 
-router.get('/', function (request, response) {
+router.get('/', function (request, response, next) {
     readWrite.readPinsFromData().then(function(pinList){
-        return response.render('home', {redPin: pinList[0], greenPin: pinList[1], bluePin: pinList[2]});
+        console.log('here home')
+        response.render('home', {redPin: pinList[0], greenPin: pinList[1], bluePin: pinList[2]});
+        return next();
     });
+
 });
 
 router.post('/api/lightsOff', (request, response, next) => {

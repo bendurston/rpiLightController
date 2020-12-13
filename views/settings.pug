@@ -5,11 +5,14 @@ html
     body
         h1 Settings
         a(href='/') Go Back
-        form(action="/settings" method="POST")
-            label(name="redPinName") GPIO red pin
-            input(type="text" name="redPin")
-            label(name="greenPinName") GPIO green pin
-            input(type="text" name="greenPin")
-            label(name="bluePinName") GPIO blue pin
-            input(type="text" name="bluePin")
-            input(type="submit" value="Save")
+        div(id='change-pins')
+            form(action="/home/settings" method="POST")
+                label(name="redPinName") GPIO red pin
+                input(type="text" name="redPin")
+                label(name="greenPinName") GPIO green pin
+                input(type="text" name="greenPin")
+                label(name="bluePinName") GPIO blue pin
+                input(type="text" name="bluePin")
+                input(type="submit" value="Save")
+        p clicking save more than once without going back first will cause the page to not be found.
+        

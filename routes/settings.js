@@ -4,17 +4,18 @@ const readWrite = require('../helpers/readWriteJson.js');
 
 const router = express.Router();
 
-router.get('/', function (request, response) {
-    return response.render('settings');
+router.get('/', function (request, response, next) {
+    response.render('settings');
+    return next();
 });
 
-router.post('/', function (request, response, next){
+router.post('/', function(request, response, next){
     var redPin = request.body.redPin
     var greenPin = request.body.greenPin
     var bluePin = request.body.bluePin
-    readWrite.writePinsToData(redPin, greenPin, bluePin);
-    response.render('home',{redPin: redPin, greenPin: greenPin, bluePin: bluePin}); 
-    return next()   
+    readWrite.writePinsToData(redPin, greenPin, bluePin)
+    return response.render('settings')
+    return next();
 });
 
 

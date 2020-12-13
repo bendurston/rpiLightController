@@ -4,7 +4,7 @@ const dotenv = require('dotenv');
 const bodyPaser = require('body-parser');
 
 const app = express();
-const routes = require('./routes');
+const routes = require('./routes/home');
 const colourChanger = require('./helpers/colourChanger.js');
 
 dotenv.config();
@@ -18,7 +18,12 @@ app.set('view engine', 'pug')
 
 app.use(express.json(), bodyPaser.urlencoded({extended: false}))
 
-app.use('/', routes);
+app.use('/home', routes);
+
+app.get('/', (request, response, next) => {
+    response.redirect('/home')
+    return next()
+});
 
 app.listen(port, () => {
     console.log(`Express server listening on port: ${port}.`)

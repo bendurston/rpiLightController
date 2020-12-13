@@ -5,7 +5,7 @@ html
             include ../static/css/home.css
     body
         h1 Welecome to the RPI LED Controller
-        a(href='/settings') Go To Settings
+        a(href='home/settings') Go To Settings
         div(id="current-pins")
             div(id="red")
                 p= redPin
@@ -13,9 +13,8 @@ html
                 p= greenPin
             div(id="blue")
                 p= bluePin
-        
         button(id="lights-on")  Turn lights on
         button(id="lights-off")  Turn lights off
         button(id="lights-custom")  Custom Lights
 
-    script(src='js/client.js')
+    script(src='../js/homeClient.js')
