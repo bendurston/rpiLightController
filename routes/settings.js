@@ -14,7 +14,7 @@ router.post('/', function(request, response, next){
     var greenPin = request.body.greenPin
     var bluePin = request.body.bluePin
     readWrite.writePinsToData(redPin, greenPin, bluePin)
-    return response.render('settings')
+    response.render('settings')
     return next();
 });
 
