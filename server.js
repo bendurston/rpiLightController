@@ -5,7 +5,6 @@ const bodyPaser = require('body-parser');
 
 const app = express();
 const routes = require('./routes/home');
-const colourChanger = require('./helpers/colourChanger.js');
 
 dotenv.config();
 

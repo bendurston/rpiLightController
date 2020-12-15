@@ -1,10 +1,7 @@
 const express = require('express');
-const bodyPaser = require('body-parser');
 
-const readWrite = require('../helpers/readWriteJson.js');
 const colourChanger = require('../helpers/colourChanger.js');
 const settings = require('./settings');
-const { request, response } = require('express');
 
 const router = express.Router();
 
