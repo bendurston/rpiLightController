@@ -9,12 +9,8 @@ const { request, response } = require('express');
 const router = express.Router();
 
 router.get('/', function (request, response, next) {
-    readWrite.readPinsFromData().then(function(pinList){
-        console.log('here home')
-        response.render('home', {redPin: pinList[0], greenPin: pinList[1], bluePin: pinList[2]});
-        return next();
-    });
-
+    response.render('home')
+    return next()
 });
 
 router.post('/api/lightsOff', (request, response, next) => {

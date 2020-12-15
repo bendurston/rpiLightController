@@ -5,6 +5,13 @@ html
     body
         h1 Settings
         a(href='/') Go Back
+        div(id="current-pins")
+            div(id="red")
+                p= redPin
+            div(id="green")
+                p= greenPin
+            div(id="blue")
+                p= bluePin
         div(id='change-pins')
             form(action="/home/settings" method="POST")
                 label(name="redPinName") GPIO red pin
@@ -15,4 +22,4 @@ html
                 input(type="text" name="bluePin")
                 input(type="submit" value="Save")
         p clicking save more than once without going back first will cause the page to not be found.
-        
+
