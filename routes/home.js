@@ -10,19 +10,17 @@ router.get('/', function (request, response, next) {
     return next()
 });
 
-router.post('/api/lightsOff', (request, response, next) => {
-    colourChanger.setLightsOff()
+router.patch('/api/lights/:status', (request, response, next) => {
+    if(request.params.status == 1){
+        colourChanger.setLightsOn()
+    }else {
+        colourChanger.setLightsOff()
+    }
     response.sendStatus(200);
     return next()
 });
 
-router.post('/api/lightsOn', (request, response, next) => {
-    colourChanger.setLightsOn()
-    response.sendStatus(200);
-    return next()    
-});
-
-router.post('/api/lightsCustom', (request, response, next) => {
+router.patch('/api/lights/custom', (request, response, next) => {
     const red = String(request.body.red);
     const green = String(request.body.green);
     const blue = String(request.body.blue);
@@ -30,7 +28,6 @@ router.post('/api/lightsCustom', (request, response, next) => {
     response.sendStatus(200);
     return next()
 });
-
 
 router.use('/settings', settings);
 
