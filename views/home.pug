@@ -1,6 +1,7 @@
 html
     head    
         title RPI LED Controller
+        link(rel="icon" href="#")
         style
             include ../static/css/home.css
     body
@@ -17,9 +18,8 @@ html
                 label(name="blueslider-label") Blue
                 input(type="range" min="0", max="255", value="0" id="blue-slider" class="slider")
             button(id="lights-custom")  Set Custom Lights
-            button(id="preview") set
             div(class="colour-preview" id="colour-preview")
-                p some colour
+                
 
 
     script(src='../js/homeClient.js')
