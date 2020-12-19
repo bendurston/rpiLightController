@@ -20,7 +20,7 @@ router.patch('/api/lights/:status', (request, response, next) => {
     return next()
 });
 
-router.patch('/api/lights/custom', (request, response, next) => {
+router.post('/api/lights/custom', (request, response, next) => {
     const red = String(request.body.red);
     const green = String(request.body.green);
     const blue = String(request.body.blue);

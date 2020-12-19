@@ -8,6 +8,18 @@ html
         a(href='home/settings') Go To Settings
         button(id="lights-on")  Turn lights on
         button(id="lights-off")  Turn lights off
-        button(id="lights-custom")  Custom Lights
+        div(id="custom-lights")
+            div(id="slider-container")
+                label(name="redslider-label") Red
+                input(type="range" min="0", max="255", value="0" id="red-slider" class="slider") 
+                label(name="greenslider-label") Green
+                input(type="range" min="0", max="255", value="0" id="green-slider" class="slider")
+                label(name="blueslider-label") Blue
+                input(type="range" min="0", max="255", value="0" id="blue-slider" class="slider")
+            button(id="lights-custom")  Set Custom Lights
+            button(id="preview") set
+            div(class="colour-preview" id="colour-preview")
+                p some colour
+
 
     script(src='../js/homeClient.js')
